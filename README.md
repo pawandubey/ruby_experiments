@@ -1,6 +1,6 @@
 # Ruby Experiments
 ****
-A few trivial Ruby projects for gaining a better understanding of the language and it's idioms.
+A few trivial Ruby projects for gaining a better understanding of the language and its idioms.
 
 >Copyright 2015 [Pawan Dubey](http://pawandubey.com)
 >
