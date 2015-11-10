@@ -1,7 +1,7 @@
 require 'mechanize'
 
-REG_NO = '130905586'
-BIRTH_DATE = '1995-01-13' #YYYY-MM-DD
+REG_NO = 'xxxxxxxxx'
+BIRTH_DATE = 'YYYY-MM-DD' #YYYY-MM-DD
 
 agent = Mechanize.new
 
