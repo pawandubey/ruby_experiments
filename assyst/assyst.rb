@@ -1,7 +1,7 @@
 require 'mechanize'
 
-REG_NO = 'xxxxxxxxx'
-BIRTH_DATE = 'YYYY-MM-DD' #YYYY-MM-DD
+REG_NO = '130905434'
+BIRTH_DATE = '1994-09-15' #YYYY-MM-DD
 
 agent = Mechanize.new
 
@@ -31,6 +31,6 @@ begin
     end
   end
 
-rescue SocketError
-  abort 'There was an error while connecting to the site, please check your connection and try again'
+rescue StandardError => e
+  abort "There was an error while connecting to the site, please check your connection and try again : \n #{e.message}"
 end
