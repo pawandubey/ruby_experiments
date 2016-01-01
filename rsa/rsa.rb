@@ -26,11 +26,11 @@ require 'prime'
 class RSA
 
   def encrypt(message, public_key)
-    modular_power(message,public_key[:e],public_key[:n])
+    modular_power(message, public_key[:e], public_key[:n])
   end
 
   def decrypt(secret, private_key)
-    modular_power(secret,private_key[:d],private_key[:n])
+    modular_power(secret, private_key[:d], private_key[:n])
   end
 
   def generate_keys
@@ -50,6 +50,7 @@ class RSA
   end
 
   private
+  #modular exponentiation
   def modular_power(base, exponent, modulus)
     result = 1
     while exponent > 0
@@ -62,6 +63,7 @@ class RSA
     result
   end
 
+  #Keeping the prime numbers in sane limits, else the CPU will blow off
   def generate_random_prime
     prng = Random.new
     p = prng.rand((1000000)..(100000000))
@@ -71,12 +73,9 @@ class RSA
     p
   end
 
+  #Find a co-prime in the range 1...number-1 non-deterministically
   def find_coprime(number)
-    # (number-1).downto 1 do |i|
-    #   return i if number.gcd(i) == 1
-    # end
     prng = Random.new
-
     coprime = prng.rand(1..number-1)
     while number.gcd(coprime) != 1
       coprime = prng.rand(1..number-1)
