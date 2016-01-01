@@ -13,15 +13,19 @@ begin
   login_form.birthDate_i18n = BIRTH_DATE
 
   signed_in = agent.submit(login_form, login_form.buttons.first)
-  raise SocketError.new if signed_in.nil?
+
+  fail SocketError if signed_in.nil?
+
   #signed_in
   puts signed_in.search('.loginbar').text
   acad_status = signed_in.link_with(text: 'Academic Status')
-  raise SocketError.new if acad_status.nil?
+
+  fail SocketError if acad_status.nil?
+
   acad_status = acad_status.click
 
   if acad_status.nil?
-    raise SocketError.new
+    fail SocketError
   else
     attendance = acad_status.search('table#ListAttendanceSummary_table > tr').each do |row|
       row.search('td>span')[1..-1].each do |data|
