@@ -67,6 +67,6 @@ module Bayes
       total_word_count = get_word_count(word)
       total_word_count = 1 if total_word_count == 0
       (get_word_count(word, category).to_f + 1) / (total_word_count + @model.keys.size)
-     end
+    end
   end
 end
